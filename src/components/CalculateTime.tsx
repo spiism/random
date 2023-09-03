@@ -61,6 +61,8 @@ const CalculateTime: React.FC = () => {
       const arrayTime: any[] = [];
       let data = { ...originalData };
 
+      const dataLength = Object.keys(data).length;
+
       while (Object.keys(data).length > 0) {
         let time = 0;
 
@@ -94,7 +96,8 @@ const CalculateTime: React.FC = () => {
           }
         }
 
-        const vehiclesSold = Object.keys(data).length - 1;
+        const vehiclesSold = dataLength - Object.keys(data).length;
+        console.log(Object.keys(data).length);
         const resultObject = {
           [`${vehiclesSold} Vehicle(s) sold`]: `${
             Number(time.toFixed(2)) > 0
